@@ -1,0 +1,14 @@
+/*
+    Marc-Antoine Desbiens
+    October 2012
+*/
+    
+uniform sampler2D LookupSampler;
+
+varying float NdotL;
+varying float NdotV;
+
+void main(void)
+{
+	gl_FragColor = texture2D(LookupSampler,vec2(NdotL,1.0-pow(NdotV,2.0)));
+}

@@ -1,0 +1,9 @@
+/*
+    Marc-Antoine Desbiens
+    October 2012
+*/
+
+void main(void)
+{
+	gl_Position = ftransform();
+}

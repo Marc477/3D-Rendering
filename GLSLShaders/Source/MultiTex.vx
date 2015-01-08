@@ -1,0 +1,18 @@
+/*
+    Marc-Antoine Desbiens
+    October 2012
+*/
+
+varying vec3 tVertex;
+varying vec3 tNorm;
+varying vec2 texCoord;
+
+void main(void)
+{
+	tVertex = vec3(gl_ModelViewMatrix * gl_Vertex);
+	tNorm = normalize(gl_NormalMatrix * gl_Normal);
+
+	texCoord = gl_MultiTexCoord0.xy;
+
+	gl_Position = ftransform();
+}

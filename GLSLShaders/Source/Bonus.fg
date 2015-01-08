@@ -1,0 +1,50 @@
+/*
+    Marc-Antoine Desbiens
+    October 2012
+*/
+
+uniform vec4 BonusColor;
+
+varying vec3 tVertex;
+varying vec3 tNorm;
+varying vec3 tLight;
+
+const float PI=3.14159265;
+
+void main(void)
+{
+	vec4 kAmb = vec4(0.0,0.0,0.0,1.0);
+	vec4 kDiff = vec4(0.7,0.7,0.7,1.0);
+	vec4 kSpec = vec4(1.0,1.0,1.0,1.0);
+	float shininess = 5.0;
+	vec4 iAmb = gl_LightSource[0].ambient;
+	vec4 iDiff = gl_LightSource[0].diffuse;
+	vec4 iSpec = gl_LightSource[0].specular;
+
+	//Vectors
+	vec4 color = vec4(0.0,0.0,0.0,0.5);
+	vec3 norm = tNorm;
+	vec3 viewVec = normalize(-tVertex);
+	vec3 lightVec = normalize(vec3(gl_LightSource[0].position) - tVertex);
+	vec3 lightVec2 = normalize(tLight - tVertex);
+	vec3 reflexVec = normalize(2.0*dot(lightVec,norm)*norm-lightVec);
+
+	//Negative color
+	vec4 colorNeg;
+	colorNeg[0] = 1.0-BonusColor[0];
+	colorNeg[1] = 1.0-BonusColor[1];
+	colorNeg[2] = 1.0-BonusColor[2];
+	colorNeg[3] = BonusColor[3];
+
+	//Shader
+	float NdotL,NdotL2,RdotV,VdotN;
+
+	NdotL = max(dot(lightVec,norm),0.0);
+	NdotL2 = max(dot(lightVec2,norm),0.0);
+	RdotV = dot(viewVec,reflexVec);
+	VdotN = max(dot(viewVec,-norm),0.0);
+
+    color = kDiff*VdotN*iDiff*((1.0-NdotL2)*BonusColor + NdotL2*colorNeg) + kSpec*pow(RdotV,shininess)*iSpec;
+
+	gl_FragColor = color;
+}

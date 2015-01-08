@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{37A0E843-9FB8-493B-A800-AB01583F7A92}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>IMN638_TP2</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <CustomBuildAfterTargets />
+    <OutDir>$(SolutionDir)build\$(Configuration)\</OutDir>
+    <IntDir>build\intermediate\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <CustomBuildAfterTargets />
+    <OutDir>$(SolutionDir)build\$(Configuration)\</OutDir>
+    <IntDir>build\intermediate\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>"$(ProjectDir)\resources\Win32\"</AdditionalIncludeDirectories>
+      <UndefinePreprocessorDefinitions>
+      </UndefinePreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>glew32.lib;glut32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>"$(ProjectDir)\Resources\Win32\Glew\lib";"$(ProjectDir)\Resources\Win32\Glut\"</AdditionalLibraryDirectories>
+    </Link>
+    <CustomBuildStep>
+      <Command>
+      </Command>
+    </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>xcopy "$(Projectdir)Resources\Win32\Glew\bin\glew32.dll" "$(OUTDIR)" /D
+xcopy "$(Projectdir)Resources\Win32\GLUT\glut32.dll" "$(OUTDIR)" /D</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>"$(ProjectDir)\resources\Win32\"</AdditionalIncludeDirectories>
+      <UndefinePreprocessorDefinitions>
+      </UndefinePreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>glew32.lib;glut32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>"$(ProjectDir)\Resources\Win32\Glew\lib";"$(ProjectDir)\Resources\Win32\Glut\"</AdditionalLibraryDirectories>
+    </Link>
+    <CustomBuildStep>
+      <Command>
+      </Command>
+    </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>xcopy "$(Projectdir)Resources\Win32\Glew\bin\glew32.dll" "$(OUTDIR)" /D
+xcopy "$(Projectdir)Resources\Win32\GLUT\glut32.dll" "$(OUTDIR)" /D</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\BitmapHandling.h" />
+    <ClInclude Include="Source\Camera.h" />
+    <ClInclude Include="Source\ColorRGB.h" />
+    <ClInclude Include="Source\GLInclude.h" />
+    <ClInclude Include="Source\Image.h" />
+    <ClInclude Include="Source\Image.hpp" />
+    <ClInclude Include="Source\ModelLoader.h" />
+    <ClInclude Include="Source\Point2.h" />
+    <ClInclude Include="Source\RenderingTechnique.h" />
+    <ClInclude Include="Source\Shader.h" />
+    <ClInclude Include="Source\ShaderProgram.h" />
+    <ClInclude Include="Source\TechniqueBarla.h" />
+    <ClInclude Include="Source\TechniqueBonus.h" />
+    <ClInclude Include="Source\TechniqueFactory.h" />
+    <ClInclude Include="Source\TechniqueGeoFlat.h" />
+    <ClInclude Include="Source\TechniqueMultiTex.h" />
+    <ClInclude Include="Source\TechniquePhong.h" />
+    <ClInclude Include="Source\TechniqueToon.h" />
+    <ClInclude Include="Source\TechniqueTwist.h" />
+    <ClInclude Include="Source\TextureHandling.h" />
+    <ClInclude Include="Source\Vector3.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\BitmapHandling.cpp" />
+    <ClCompile Include="Source\Camera.cpp" />
+    <ClCompile Include="Source\ColorRGB.cpp" />
+    <ClCompile Include="Source\main.cpp" />
+    <ClCompile Include="Source\ModelLoader.cpp" />
+    <ClCompile Include="Source\Point2.cpp" />
+    <ClCompile Include="Source\Shader.cpp" />
+    <ClCompile Include="Source\ShaderProgram.cpp" />
+    <ClCompile Include="Source\TechniqueBarla.cpp" />
+    <ClCompile Include="Source\TechniqueBonus.cpp" />
+    <ClCompile Include="Source\TechniqueFactory.cpp" />
+    <ClCompile Include="Source\TechniqueGeoFlat.cpp" />
+    <ClCompile Include="Source\TechniqueMultiTex.cpp" />
+    <ClCompile Include="Source\TechniquePhong.cpp" />
+    <ClCompile Include="Source\TechniqueToon.cpp" />
+    <ClCompile Include="Source\TechniqueTwist.cpp" />
+    <ClCompile Include="Source\TextureHandling.cpp" />
+    <ClCompile Include="Source\Vector3.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

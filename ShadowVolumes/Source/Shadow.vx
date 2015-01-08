@@ -1,0 +1,25 @@
+/*
+  Marc-Antoine Desbiens
+  November 2012
+*/
+
+varying vec3 tNorm;
+
+void main(void)
+{
+	vec3 tVertex = vec3(gl_ModelViewMatrix * gl_Vertex);
+	tNorm = normalize(gl_NormalMatrix * gl_Normal);
+	float k = 99.0;
+
+	//Find direction to extend vertex
+	vec3 dir = normalize(tVertex-vec3(gl_LightSource[0].position));
+
+	//Extend vertex with normal not pointing toward light
+	if(dot(dir,tNorm) > 0.0)
+	{
+		tVertex = tVertex + k*dir;
+	}
+
+	vec4 vertex = vec4(tVertex.xyz, 1.0);
+	gl_Position = gl_ProjectionMatrix * vertex;
+}

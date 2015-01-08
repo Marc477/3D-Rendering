@@ -1,0 +1,13 @@
+/*
+  Marc-Antoine Desbiens
+  November 2012
+*/
+
+varying vec3 tNorm;
+
+void main(void)
+{
+	//Color to normal is useful for testing and debuging
+    //This is useless in release because this shader is only useful for the stencil buffer (no color drawn)
+	gl_FragColor = vec4(tNorm.xyz,1.0);
+}

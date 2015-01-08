@@ -1,0 +1,49 @@
+/*
+    Marc-Antoine Desbiens
+    October 2012
+*/
+
+uniform sampler2D DaySampler;
+uniform sampler2D NightSampler;
+uniform sampler2D MaskSampler;
+
+varying vec3 tVertex;
+varying vec3 tNorm;
+varying vec2 texCoord;
+
+const float PI = 3.14159265;
+
+void main(void)
+{
+	vec4 kAmb = gl_FrontMaterial.ambient;
+	vec4 kDiff = gl_FrontMaterial.diffuse;
+	vec4 kSpec = gl_FrontMaterial.specular;
+	float shininess = gl_FrontMaterial.shininess;
+	vec4 iAmb = gl_LightSource[0].ambient;
+	vec4 iDiff = gl_LightSource[0].diffuse;
+	vec4 iSpec = gl_LightSource[0].specular;
+
+	vec3 lightVec = normalize(vec3(gl_LightSource[0].position) - tVertex);  // L
+	vec3 viewVec = normalize(-tVertex);                                     // V
+	vec3 reflexVec = normalize(2.0*dot(lightVec,tNorm)*tNorm-lightVec);     // R
+
+	float NdotL = max(dot(lightVec,tNorm),0.0);
+	float RdotV = max(dot(viewVec,reflexVec),0.0);
+	float VdotN = max(dot(viewVec,tNorm),0.0);
+
+	vec4 colorDay = texture2D(DaySampler, texCoord);
+	vec4 colorNight = texture2D(NightSampler, texCoord);
+	vec4 colorMask = texture2D(MaskSampler, texCoord);
+
+	vec4 a = vec4(0.3, 0.7, 1.0, 1.0);
+	vec4 cAmb,cDiff,cSpec,color;
+
+	for(int i=0; i < 4; i++) {
+		cAmb[i] = 3.0*a[i]*pow(1.0-VdotN,3.0)*NdotL;
+		cDiff[i] = colorDay[i]*NdotL + 0.5*colorNight[i]*(1.0-NdotL)*iDiff[i];
+		cSpec[i] = kSpec[i]*colorMask[i]*pow(RdotV,shininess)*iSpec[i];
+		color[i] = cAmb[i] + cDiff[i] + cSpec[i];
+	}
+	
+	gl_FragColor = color;
+}

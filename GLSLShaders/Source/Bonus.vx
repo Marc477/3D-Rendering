@@ -1,0 +1,30 @@
+/*
+    Marc-Antoine Desbiens
+    October 2012
+*/
+
+uniform float FxValue;
+uniform float FxValueMax;
+uniform float ModelSize;
+
+varying vec3 tVertex;
+varying vec3 tNorm;
+varying vec3 tLight;
+
+const float PI=3.14159265;
+
+void main(void)
+{
+	tVertex = vec3(gl_ModelViewMatrix * gl_Vertex);
+	tNorm = normalize(gl_NormalMatrix * gl_Normal);
+
+	//Light effect position
+	vec4 lightPos;
+	lightPos.x = 5.0*ModelSize*cos(FxValue*2.0*PI/FxValueMax);
+	lightPos.y = 5.0*ModelSize*cos(FxValue*PI/FxValueMax)/2.0;
+	lightPos.z = 5.0*ModelSize*sin(FxValue*2.0*PI/FxValueMax);
+	lightPos.w = 1.0;
+	tLight = vec3(gl_ModelViewMatrix * lightPos);
+
+	gl_Position = ftransform();
+}

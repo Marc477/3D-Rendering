@@ -1,0 +1,11 @@
+/*
+    Marc-Antoine Desbiens
+    October 2012
+*/
+
+uniform vec4 FlatColor;
+
+void main(void)
+{
+	gl_FragColor = FlatColor;
+}

@@ -1,0 +1,17 @@
+/*
+    Marc-Antoine Desbiens
+    October 2012
+*/
+
+varying float NdotV;
+
+void main(void)
+{
+	vec3 ecPosition = vec3(gl_ModelViewMatrix * gl_Vertex);
+	vec3 tnorm		= normalize(gl_NormalMatrix * gl_Normal);
+	vec3 viewVec	= normalize(-ecPosition);
+	
+	NdotV = max(dot(viewVec,tnorm),0.0);
+	
+	gl_Position = ftransform();
+}
