@@ -14,7 +14,7 @@ void main(void)
 	//Find direction to extend vertex
 	vec3 dir = normalize(tVertex-vec3(gl_LightSource[0].position));
 
-	//Extend vertex with normal not pointing toward light
+	//Extend vertices with normal not pointing toward light
 	if(dot(dir,tNorm) > 0.0)
 	{
 		tVertex = tVertex + k*dir;

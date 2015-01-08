@@ -9,5 +9,6 @@ varying float NdotV;
 
 void main(void)
 {
+    //Use angle between normal and camera view vector to get the position of the lookup sampler
 	gl_FragColor = texture(LookupSampler,vec2(NdotV,0));
 }

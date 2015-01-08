@@ -10,5 +10,6 @@ varying float NdotV;
 
 void main(void)
 {
+    //Use the angles to determine texture lookup position
 	gl_FragColor = texture2D(LookupSampler,vec2(NdotL,1.0-pow(NdotV,2.0)));
 }

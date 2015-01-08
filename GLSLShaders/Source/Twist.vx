@@ -17,6 +17,7 @@ void main(void)
 	vec4 vertexTwist;
 	vec3 normalTwist;
 	
+    //Twist the model using cosinus and sinus
 	vertexTwist[0] = vertex[0]*cos(vertex[1]*TwistLevel) + vertex[2]*sin(vertex[1]*TwistLevel);
 	vertexTwist[1] = vertex[1];
 	vertexTwist[2] = -vertex[0]*sin(vertex[1]*TwistLevel) + vertex[2]*cos(vertex[1]*TwistLevel);
@@ -26,7 +27,7 @@ void main(void)
 	normalTwist[1] = normal[1];
 	normalTwist[2] = -normal[0]*sin(vertex[1]*TwistLevel) + normal[2]*cos(vertex[1]*TwistLevel);
 
-	//Transform
+	//Transform the vertex
 	tVertex = vec3(gl_ModelViewMatrix * vertexTwist);
 	tNorm = normalize(gl_NormalMatrix * normalTwist);
 

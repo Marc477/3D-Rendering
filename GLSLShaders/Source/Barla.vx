@@ -13,6 +13,7 @@ void main(void)
 	vec3 lightVec = normalize(vec3(gl_LightSource[0].position) - ecPosition);
 	vec3 viewVec = normalize(-ecPosition);
 
+    //Compute angle between normal and light, and angle between normal and camera
 	NdotL = max(dot(lightVec,tnorm),0.0);
 	NdotV = max(dot(viewVec,tnorm),0.0);
 	gl_Position = ftransform();
