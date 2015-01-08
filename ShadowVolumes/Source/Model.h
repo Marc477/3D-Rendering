@@ -8,7 +8,7 @@
 #define MODEL_H_
 
 #include <vector>
-#include "Vector3.h"
+#include "Utilities/Vector3.h"
 
 using namespace std;
 

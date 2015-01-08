@@ -2,11 +2,11 @@
 #include <cassert>
 #include <vector>
 
-#include "GLInclude.h"
-#include "Camera.h"
-#include "ModelLoader.h"
-#include "Shader.h"
-#include "ShaderProgram.h"
+#include "Utilities/GLInclude.h"
+#include "Utilities/Camera.h"
+#include "Utilities/ModelLoader.h"
+#include "Utilities/Shader.h"
+#include "Utilities/ShaderProgram.h"
 #include "TechniqueFactory.h"
 
 //Camera Variables
@@ -81,6 +81,7 @@ void LightAndMaterialSetup()
     glLightfv(GL_LIGHT0,GL_POSITION,Posl);
 }
 
+//Model 1: Bunny
 void DisplayScene0()
 {
     glClearColor(0.4, 0.4, 0.4, 1);
@@ -109,6 +110,7 @@ void DisplayScene0()
     glutSwapBuffers();
 }
 
+//Model 1: Gargoyle
 void DisplayScene1()
 {
     glClearColor(0.1, 0.1, 0.1, 1);
@@ -139,6 +141,7 @@ void DisplayScene1()
     glutSwapBuffers();
 }
 
+//Model 3: Sphere
 void DisplayScene2()
 {
     glClearColor(0.05, 0.05, 0.05, 1);
@@ -172,6 +175,7 @@ void DisplayScene2()
     glutSwapBuffers();
 }
 
+//Main glut display function
 void Display()
 {
     switch(gCurrentScene)
@@ -194,6 +198,7 @@ void Idle()
     glutPostRedisplay();
 }
 
+//Mouse buttons/////
 void MouseButton(int aButton, int aState, int aX, int aY)
 {
     Camera::MouseEventArgs Args;
@@ -238,6 +243,7 @@ void Keyboard(unsigned char aKey, int aX, int aY)
     gCurrentTechnique->ReceiveInput(aKey);
 }
 
+//Keyboard ///////
 void SpecialKeyboard(int aKey, int aX, int aY)
 {
     switch(aKey)

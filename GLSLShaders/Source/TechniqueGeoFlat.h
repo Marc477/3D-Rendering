@@ -8,7 +8,7 @@
 #define TECHNIQUEGEOFLAT_H_
 
 #include "RenderingTechnique.h"
-#include "ShaderProgram.h"
+#include "Utilities/ShaderProgram.h"
 
 //Simple flat rendering
 class TechniqueGeoFlat : public RenderingTechnique

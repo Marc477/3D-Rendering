@@ -9,9 +9,9 @@
 
 #include <iostream>
 #include "Model.h"
-#include "GLInclude.h"
-#include "Shader.h"
-#include "ShaderProgram.h"
+#include "Utilities/GLInclude.h"
+#include "Utilities/Shader.h"
+#include "Utilities/ShaderProgram.h"
 
 //Called once when the program launches.
 void InitRendering();

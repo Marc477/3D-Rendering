@@ -3,9 +3,9 @@
 #include <vector>
 #include <cmath>
 
-#include "GLInclude.h"
-#include "Camera.h"
-#include "ModelLoader.h"
+#include "Utilities/GLInclude.h"
+#include "Utilities/Camera.h"
+#include "Utilities/ModelLoader.h"
 
 #include "StencilShadowRender.h"
 
@@ -269,6 +269,7 @@ void MouseMove(int aX, int aY)
     gTheCam.UpdateControls(Args);
 }
 
+//Keys !!
 void SpecialKeyboard(int aKey, int aX, int aY)
 {
     switch(aKey)

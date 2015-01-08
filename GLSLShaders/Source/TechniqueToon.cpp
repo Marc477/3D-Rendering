@@ -6,9 +6,9 @@
 
 #include "TechniqueToon.h"
 
-#include "Image.h"
-#include "BitmapHandling.h"
-#include "TextureHandling.h"
+#include "Utilities/Image.h"
+#include "Utilities/BitmapHandling.h"
+#include "Utilities/TextureHandling.h"
 
 TechniqueToon::TechniqueToon()
 :   mCurrentLookup(0)

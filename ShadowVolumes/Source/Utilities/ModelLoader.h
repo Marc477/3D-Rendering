@@ -14,7 +14,7 @@
 #include <string>
 #include <vector>
 
-#include "Model.h"
+#include "../Model.h"
 #include "Point2.h"
 #include "Vector3.h"
 

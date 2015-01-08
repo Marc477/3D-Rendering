@@ -6,7 +6,7 @@
 
 #include "Model.h"
 
-#include "GLInclude.h"
+#include "Utilities/GLInclude.h"
 #include <list>
 
 Model::Model()

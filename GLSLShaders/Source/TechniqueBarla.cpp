@@ -6,9 +6,9 @@
 
 #include "TechniqueBarla.h"
 
-#include "Image.h"
-#include "BitmapHandling.h"
-#include "TextureHandling.h"
+#include "Utilities/Image.h"
+#include "Utilities/BitmapHandling.h"
+#include "Utilities/TextureHandling.h"
 
 TechniqueBarla::TechniqueBarla()
 :   mCurrentLookup(0)

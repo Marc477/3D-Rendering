@@ -6,9 +6,9 @@
 
 #include "TechniqueGeoFlat.h"
 
-#include "Image.h"
-#include "BitmapHandling.h"
-#include "TextureHandling.h"
+#include "Utilities/Image.h"
+#include "Utilities/BitmapHandling.h"
+#include "Utilities/TextureHandling.h"
 
 TechniqueGeoFlat::TechniqueGeoFlat()
 : flatColor(Color(1,0,0))

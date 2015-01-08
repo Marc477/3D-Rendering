@@ -10,6 +10,30 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\Model.h" />
+    <ClInclude Include="Source\StencilShadowRender.h" />
+    <ClInclude Include="Source\Utilities\Camera.h" />
+    <ClInclude Include="Source\Utilities\ColorRGB.h" />
+    <ClInclude Include="Source\Utilities\GLInclude.h" />
+    <ClInclude Include="Source\Utilities\ModelLoader.h" />
+    <ClInclude Include="Source\Utilities\Point2.h" />
+    <ClInclude Include="Source\Utilities\Shader.h" />
+    <ClInclude Include="Source\Utilities\ShaderProgram.h" />
+    <ClInclude Include="Source\Utilities\Vector3.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\main.cpp" />
+    <ClCompile Include="Source\Model.cpp" />
+    <ClCompile Include="Source\StencilShadowRender.cpp" />
+    <ClCompile Include="Source\Utilities\Camera.cpp" />
+    <ClCompile Include="Source\Utilities\ColorRGB.cpp" />
+    <ClCompile Include="Source\Utilities\ModelLoader.cpp" />
+    <ClCompile Include="Source\Utilities\Point2.cpp" />
+    <ClCompile Include="Source\Utilities\Shader.cpp" />
+    <ClCompile Include="Source\Utilities\ShaderProgram.cpp" />
+    <ClCompile Include="Source\Utilities\Vector3.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectName>ShadowVolumes</ProjectName>
     <ProjectGuid>{279A1DCF-26F8-4E4D-8896-E4D877B42235}</ProjectGuid>
@@ -105,30 +129,6 @@ xcopy "$(Projectdir)Resources\Win32\GLUT\glut32.dll" "$(OUTDIR)" /D
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="Source\Camera.cpp" />
-    <ClCompile Include="Source\main.cpp" />
-    <ClCompile Include="Source\Model.cpp" />
-    <ClCompile Include="Source\Shader.cpp" />
-    <ClCompile Include="Source\ShaderProgram.cpp" />
-    <ClCompile Include="Source\StencilShadowRender.cpp" />
-    <ClCompile Include="Source\ColorRGB.cpp" />
-    <ClCompile Include="Source\ModelLoader.cpp" />
-    <ClCompile Include="Source\Point2.cpp" />
-    <ClCompile Include="Source\Vector3.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Source\Camera.h" />
-    <ClInclude Include="Source\Model.h" />
-    <ClInclude Include="Source\Shader.h" />
-    <ClInclude Include="Source\ShaderProgram.h" />
-    <ClInclude Include="Source\StencilShadowRender.h" />
-    <ClInclude Include="Source\ColorRGB.h" />
-    <ClInclude Include="Source\GLInclude.h" />
-    <ClInclude Include="Source\ModelLoader.h" />
-    <ClInclude Include="Source\Point2.h" />
-    <ClInclude Include="Source\Vector3.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

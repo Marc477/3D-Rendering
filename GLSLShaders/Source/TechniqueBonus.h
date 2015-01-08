@@ -8,7 +8,7 @@
 #define TECHNIQUEBONUS_H_
 
 #include "RenderingTechnique.h"
-#include "ShaderProgram.h"
+#include "Utilities/ShaderProgram.h"
 
 class TechniqueBonus : public RenderingTechnique
 {

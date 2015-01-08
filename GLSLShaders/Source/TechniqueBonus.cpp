@@ -9,9 +9,9 @@
 #include <stdio.h>
 #include <iostream>
 
-#include "Image.h"
-#include "BitmapHandling.h"
-#include "TextureHandling.h"
+#include "Utilities/Image.h"
+#include "Utilities/BitmapHandling.h"
+#include "Utilities/TextureHandling.h"
 
 TechniqueBonus::TechniqueBonus()
 	:BonusColor(0.4,0.4,0.4)

@@ -8,7 +8,7 @@
 #define TECHNIQUEBARLA_H_
 
 #include "RenderingTechnique.h"
-#include "ShaderProgram.h"
+#include "Utilities/ShaderProgram.h"
 
 //Simple toon shader rendering technique based
 //on a 1D lookup. See implementation (.cpp) for details.
