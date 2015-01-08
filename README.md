@@ -2,13 +2,13 @@
 GLSL shader examples: C++ / OpenGL
 
 
-GLSL Shaders
+# GLSL Shaders
 Code written by Marc-Antoine:
 All  Technique___.cpp & Technique__.h
 All shader files (.vx and .fg)
 
 
-Shadow Volumes
+# Shadow Volumes
 Code written by Marc-Antoine:
 StencilShadowRender .h .cpp
 Model.h Model.cpp
