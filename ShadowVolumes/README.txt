@@ -1,6 +1,6 @@
 
 Shadow Volumes
-This project shows some GLSL shader examples, please refer to the .vx (vertex shader) and .fg (fragment shader) files for revelant code.
+This project shows some GLSL shader examples, please refer to the .vx (vertex shader), .fg (fragment shader) files and StencilShadowRender.cpp for revelant code.
 
 
 Keys:
